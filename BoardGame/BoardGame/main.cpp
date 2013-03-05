@@ -5,8 +5,8 @@
 #include <GLFrustum.h>
 #include <GLGeometryTransform.h>
 
-#include "HexulusBoard.h"
-#include "Ultilities.h"
+#include "Includes\HexulusBoard.h"
+#include "Includes\Ultilities.h"
 #include <iostream>
 
 #ifdef __APPLE__
