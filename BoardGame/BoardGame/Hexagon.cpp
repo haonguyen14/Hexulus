@@ -85,13 +85,16 @@ void Hexagon::PrepareTexture(char *textureFile)
 void Hexagon::DrawHex(GLboolean withTexture)
 {
 	if(withTexture)
-		glBindTexture(GL_TEXTURE_2D, mHTexture);
+		if(glIsTexture(mHTexture) == GL_TRUE)
+			glBindTexture(GL_TEXTURE_2D, mHTexture);
+		
 	mHexBatch.Draw();
 }
 
 void Hexagon::DrawHex(GLuint hTexture)
 {
-	glBindTexture(GL_TEXTURE_2D, hTexture);
+	if(glIsTexture(hTexture) == GL_TRUE)
+		glBindTexture(GL_TEXTURE_2D, hTexture);
 	mHexBatch.Draw();
 }
 
