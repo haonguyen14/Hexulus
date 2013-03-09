@@ -7,6 +7,9 @@
 #include <GL/glut.h>
 #endif
 
+#ifndef PLANE3D_H
+#define PLANE3D_H
+
 class Plane3D
 {
 public:
@@ -22,4 +25,6 @@ public:
 
 	~Plane3D();
 };
+
+#endif
 

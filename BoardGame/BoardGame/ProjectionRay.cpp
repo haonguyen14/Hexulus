@@ -16,7 +16,7 @@ ProjectionRay::ProjectionRay(GLfloat _mouseX, GLfloat _mouseY, Vector3D cameraPo
 
 	//Convert Windows Coordinate to Viewport Coordinate (Near Plane Coordinate)
 	GLfloat mouseX = _mouseX - ((GLfloat)viewport[2] / 2.0f);
-	GLfloat mouseY = _mouseY - ((GLfloat)viewport[3] / 2.0f);
+	GLfloat mouseY = ((GLfloat)viewport[3] - _mouseY) - ((GLfloat)viewport[3] / 2.0f);
 
 	mouseX  = mouseX / ((GLfloat)viewport[2] / 2);
 	mouseY	= mouseY / ((GLfloat)viewport[3] / 2);
