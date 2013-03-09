@@ -7,17 +7,14 @@ HexulusBoard::HexulusBoard(GLfloat initLineHexX, GLfloat initLineHexY, GLfloat i
 {
 }
 
-void HexulusBoard::DrawBoard(GLint mode)
+void HexulusBoard::DrawBoard()
 {
-	int counter = 1;
 	if(mNumTextures > 0)
 	{
 		for(int i = 0; i < mColNum; i++)
 		{
 			for(int j = 0; j < mHexLines[i]->mLen; j++)
 			{
-				if(mode == GL_SELECT)
-					glLoadName(counter++);
 				mHexLines[i]->mHexes[j]->DrawHex(AssignColorTexture(i, j, mHTexture[0], mHTexture[1], mHTexture[2]));
 			}
 		}
