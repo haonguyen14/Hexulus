@@ -38,6 +38,7 @@ bool LoadTextures(char *textureFile, GLuint *hTexture)
 	GLbyte *buffer;
 
 	glGenTextures(1, hTexture);
+	glBindTexture(GL_TEXTURE_2D, *hTexture);
 	buffer = gltReadTGABits(textureFile, &width, &height, &components, &eFormat);
 	if(!buffer)
 	{
