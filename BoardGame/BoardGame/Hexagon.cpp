@@ -1,5 +1,5 @@
 #include "Includes\Hexagon.h"
-#include "Includes/Ultilities.h"
+#include "Includes\Ultilities.h"
 #include <math.h>
 
 
@@ -53,6 +53,17 @@ Hexagon::Hexagon(GLfloat centerX, GLfloat centerY, GLfloat centerZ, GLfloat dim)
 	mVertices[7][0] = rightX;
 	mVertices[7][1] = mVertices[0][1];
 	mVertices[7][2] = topZ;
+
+
+	//update normal vector
+	Vector3D point1(this->mVertices[0][0], this->mVertices[0][1], this->mVertices[0][2]);
+	Vector3D point2(this->mVertices[1][0], this->mVertices[1][1], this->mVertices[1][2]);
+	Vector3D point3(this->mVertices[2][0], this->mVertices[2][1], this->mVertices[2][2]);
+
+	Vector3D ab = point2.sub(point1);
+	Vector3D ac = point3.sub(point1);
+
+	mNormal = ab.crossProduct(ac).normalize();
 }
 
 Hexagon::~Hexagon()

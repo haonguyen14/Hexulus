@@ -1,14 +1,8 @@
-#include "Vector3D.h"
-
-#ifdef __APPLE__
-#include <glut/glut.h>
-#else
-#define FREEGLUT_STATIC
-#include <GL/glut.h>
-#endif
-
 #ifndef PLANE3D_H
 #define PLANE3D_H
+
+#include "Vector3D.h"
+
 
 class Plane3D
 {

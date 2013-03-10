@@ -94,3 +94,53 @@ Vector3D *ProjectionRay::planeIntersect(Plane3D plane)
 	Vector3D intersection = this->mPoint.add(this->mDirection.scalarMul(t));
 	return new Vector3D(intersection.mX, intersection.mY, intersection.mZ);
 }
+
+
+bool ProjectionRay::hexagonIntersect(Hexagon *hex)
+{
+	//check if the ray intersect with the plan of the hexagon
+	Vector3D hexCenter(hex->mVertices[0][0], hex->mVertices[0][1], hex->mVertices[0][2]);
+	Plane3D plane(hex->mNormal, hexCenter);
+
+	Vector3D *intersect = this->planeIntersect(plane);
+	if(intersect == NULL)
+		return NULL;	//not intersect with the plane
+
+	//check if the intersecting point is inside the hexagon using counterclock wise curling
+	Vector3D point1;
+	Vector3D point2;
+
+	Vector3D side1;
+	Vector3D side2;
+
+	Vector3D cross;
+	GLfloat dot;
+
+	for(int i = 1; i < 6; i++)
+	{
+		point1 = Vector3D(hex->mVertices[i][0], hex->mVertices[i][1], hex->mVertices[i][2]);
+		point2 = Vector3D(hex->mVertices[i+1][0], hex->mVertices[i+1][1], hex->mVertices[i+1][2]);
+
+		side1 = point2.sub(point1);
+		side2 = intersect->sub(point1);
+
+		cross = side1.crossProduct(side2);
+		
+		if(cross.dotProduct(hex->mNormal) < 0.0f)
+			return false;
+	}
+
+	//check the last side of the hexagon
+	point1 = Vector3D(hex->mVertices[6][0], hex->mVertices[6][1], hex->mVertices[6][2]);
+	point2 = Vector3D(hex->mVertices[1][0], hex->mVertices[1][1], hex->mVertices[1][2]);
+
+	side1 = point2.sub(point1);
+	side2 = intersect->sub(point1);
+
+	cross = side1.crossProduct(side2);
+	if(cross.dotProduct(hex->mNormal) < 0.0f)
+			return false;
+
+	delete intersect;
+	return true;
+}

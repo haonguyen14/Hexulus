@@ -1,3 +1,6 @@
+#ifndef LINE3D_H
+#define LINE3D_H
+
 #include "Vector3D.h"
 
 #ifdef __APPLE__
@@ -18,4 +21,6 @@ public:
 	Line3D(Vector3D point, Vector3D direction);
 	~Line3D();
 };
+
+#endif
 

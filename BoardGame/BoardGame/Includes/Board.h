@@ -1,4 +1,8 @@
+#ifndef BOARD_H
+#define BOARD_H
+
 #include <GLTools.h>
+#include "HexLine.h"
 
 #ifdef __APPLE__
 #include <glut/glut.h>
@@ -6,8 +10,6 @@
 #define FREEGLUT_STATIC
 #include <GL/glut.h>
 #endif
-
-#include "HexLine.h"
 
 class Board
 {
@@ -33,3 +35,5 @@ public:
 	void DrawBoard();
 	void GetDimensions(GLint *width, GLint *height);
 };
+
+#endif

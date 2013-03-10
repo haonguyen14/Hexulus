@@ -1,5 +1,10 @@
+#ifndef HEXLINE_H
+#define HEXLINE_H
+
 #include <GLTools.h>
 #include <GLShaderManager.h>
+
+#include "Hexagon.h"
 
 #ifdef __APPLE__
 #include <glut/glut.h>
@@ -7,8 +12,6 @@
 #define FREEGLUT_STATIC
 #include <GL/glut.h>
 #endif
-
-#include "Hexagon.h"
 
 class HexLine
 {
@@ -23,3 +26,6 @@ public:
 
 	~HexLine();
 };
+
+
+#endif

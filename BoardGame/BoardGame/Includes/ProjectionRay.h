@@ -1,7 +1,8 @@
+#include "GLFrame.h"
+
+#include "Hexagon.h"
 #include "Line3D.h"
 #include "Plane3D.h"
-
-#include "GLFrame.h"
 
 #ifdef __APPLE__
 #include <glut/glut.h>
@@ -24,5 +25,6 @@ public:
 	~ProjectionRay();
 
 	Vector3D *planeIntersect(Plane3D plane);
+	bool hexagonIntersect(Hexagon *hex);
 };
 

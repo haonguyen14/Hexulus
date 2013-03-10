@@ -1,3 +1,6 @@
+#ifndef VECTOR3D_H
+#define VECTOR3D_H
+
 #ifdef __APPLE__
 #include <glut/glut.h>
 #else
@@ -5,8 +8,6 @@
 #include <GL/glut.h>
 #endif
 
-#ifndef VECTOR3D_H
-#define VECTOR3D_H
 
 class Vector3D
 {
