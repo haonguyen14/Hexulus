@@ -20,6 +20,8 @@ public:
 	Line3D();
 	Line3D(Vector3D point, Vector3D direction);
 	~Line3D();
+
+	Vector3D getPoint(GLfloat t);
 };
 
 #endif
