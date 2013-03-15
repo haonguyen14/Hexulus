@@ -114,7 +114,6 @@ bool ProjectionRay::hexagonIntersect(Hexagon *hex)
 	Vector3D side2;
 
 	Vector3D cross;
-	GLfloat dot;
 
 	for(int i = 1; i < 6; i++)
 	{
