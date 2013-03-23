@@ -1,5 +1,4 @@
-#include "CardPiece.h"
-#include <iostream>
+#include "Includes\CardPiece.h"
 
 #define PI (3.14159265358979323846)
 
